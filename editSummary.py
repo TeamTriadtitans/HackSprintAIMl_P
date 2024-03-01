@@ -1,13 +1,16 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-
+from textblob import TextBlob
 import re
 import nltk
-nltk.download('stopwords')
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 
+def get_sentiment(text):
+    blob = TextBlob(text)
+    # blob = blob.translate(to='en')
+    return blob.sentiment.polarity
 
 def read_file_to_string(file_path):
     try:
@@ -18,7 +21,7 @@ def read_file_to_string(file_path):
         print("File not found!")
         return None
 
-file_path = "D:\semtiment Anal\output.txt"
+file_path = "D:\HackSprint\output.txt"
 summary = read_file_to_string(file_path)
 
 #summary = summary.split()
@@ -38,3 +41,11 @@ all_stopwords.remove('not')
 review = [ps.stem(word) for word in summary if not word in set(all_stopwords)]
 review = ' '.join(review)
 print(review)
+
+sentiment = get_sentiment(review)
+if sentiment > 0:
+    print("Positive")
+elif sentiment < 0:
+    print("Negative")
+else:
+    print("Neutral")
