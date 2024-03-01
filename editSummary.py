@@ -40,7 +40,6 @@ all_stopwords = stopwords.words('english')
 all_stopwords.remove('not')
 review = [ps.stem(word) for word in summary if not word in set(all_stopwords)]
 review = ' '.join(review)
-print(review)
 
 sentiment = get_sentiment(review)
 if sentiment > 0:
