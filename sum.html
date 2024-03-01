@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Sentiment Summarizer</title>
+    <link rel="stylesheet" href="sum.css">
+</head>
+<body>
+    <header>
+        <h1>Users Sentiment Analysis</h1>
+    </header>
+    <main>
+        <section id="feedbackForm">
+            <h2>Submit Feedback</h2>
+            <form id="userFeedbackForm">
+                <label for="feedback">Your Feedback:</label><br>
+                <textarea id="feedback" name="feedback" rows="4" cols="50" required></textarea><br>
+                <label for="name">Your Name:</label><br>
+                <input type="text" id="name" name="name"><br>
+                <label for="email">Your Email:</label><br>
+                <input type="email" id="email" name="email"><br>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        <section id="sentimentSummary">
+            <h2>Sentiment Summary</h2>
+            <div id="summaryStats">
+                <!-- Sentiment summary statistics will be displayed here -->
+            </div>
+            <div id="feedbackList">
+                <!-- User feedback and corresponding sentiments will be displayed here -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 User Sentiment Summarizer</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
